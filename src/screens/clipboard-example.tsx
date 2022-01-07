@@ -1,5 +1,4 @@
-import React, {useState} from 'react';
-// import Clipboard from '@react-native-clipboard/clipboard';
+import React, { useState } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -7,13 +6,17 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const ClipboardExample = () => {
   const TEXT_EXAMPLE = 'Este é um texto exemplo para o Clipboard';
   const [buttonLabel, setButtonLabel] = useState('COPIAR');
 
+  const { navigate } = useNavigation();
+
+  console.log('i am here');
+
   const copyTextToClipboard = () => {
-    // Clipboard.setString(TEXT_EXAMPLE);
     setButtonLabel('COPIADO');
   };
 
@@ -23,8 +26,15 @@ const ClipboardExample = () => {
       <Text style={styles.exampleText}>{TEXT_EXAMPLE}</Text>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => copyTextToClipboard()}>
+        onPress={() => copyTextToClipboard()}
+      >
         <Text style={styles.buttonLabel}>{buttonLabel}</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigate('HomeScreen')}
+      >
+        <Text style={styles.buttonLabel}>Navigate toHome</Text>
       </TouchableOpacity>
     </View>
   );

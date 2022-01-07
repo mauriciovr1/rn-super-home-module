@@ -1,15 +1,17 @@
 import * as React from 'react';
 
 import { StyleSheet, View, Text } from 'react-native';
-import ClipboardScreen, { multiply } from 'rn-super-home-module';
+import ClipboardScreen, { multiply } from '../../src';
 
 export default function App() {
-  const [teste, setTeste] = React.useState(true);
+  const [teste] = React.useState(true);
   const [result, setResult] = React.useState<number | undefined>();
 
   React.useEffect(() => {
     multiply(3, 7).then(setResult);
   }, []);
+
+  console.log('i am here 2');
 
   if (teste) return <ClipboardScreen />;
 
