@@ -1,0 +1,22 @@
+{
+  "name": "rn-super-home-module-example",
+  "displayName": "RnSuperHomeModule Example",
+  "expo": {
+    "name": "rn-super-home-module-example",
+    "slug": "rn-super-home-module-example",
+    "description": "Example app for rn-super-home-module",
+    "privacy": "public",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
