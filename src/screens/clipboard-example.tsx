@@ -6,15 +6,11 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { EventRegister } from 'react-native-event-listeners';
 
 const ClipboardExample = () => {
   const TEXT_EXAMPLE = 'Este é um texto exemplo para o Clipboard';
   const [buttonLabel, setButtonLabel] = useState('COPIAR');
-
-  const { navigate } = useNavigation();
-
-  console.log('i am here');
 
   const copyTextToClipboard = () => {
     setButtonLabel('COPIADO');
@@ -32,8 +28,7 @@ const ClipboardExample = () => {
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.button}
-        // @ts-ignore
-        onPress={() => navigate('Screen1')}
+        onPress={() => EventRegister.emit('NativeOutsideModule', 'Screen1')}
       >
         <Text style={styles.buttonLabel}>Navigate toHome</Text>
       </TouchableOpacity>
