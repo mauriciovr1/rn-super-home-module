@@ -33,7 +33,7 @@ const ClipboardExample = () => {
       <TouchableOpacity
         style={styles.button}
         // @ts-ignore
-        onPress={() => navigate('HomeScreen')}
+        onPress={() => navigate('Screen1')}
       >
         <Text style={styles.buttonLabel}>Navigate toHome</Text>
       </TouchableOpacity>
