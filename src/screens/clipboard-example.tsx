@@ -7,10 +7,13 @@ import {
   View,
 } from 'react-native';
 import { EventRegister } from 'react-native-event-listeners';
+import { useNavigation } from '@react-navigation/native';
 
 const ClipboardExample = () => {
   const TEXT_EXAMPLE = 'Este é um texto exemplo para o Clipboard';
   const [buttonLabel, setButtonLabel] = useState('COPIAR');
+
+  const { navigate } = useNavigation();
 
   const copyTextToClipboard = () => {
     setButtonLabel('COPIADO');
@@ -30,7 +33,18 @@ const ClipboardExample = () => {
         style={styles.button}
         onPress={() => EventRegister.emit('NativeOutsideModule', 'Screen1')}
       >
-        <Text style={styles.buttonLabel}>Navigate toHome</Text>
+        <Text style={styles.buttonLabel}>
+          Navigate to home with eventListener
+        </Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
+        // @ts-ignore
+        onPress={() => navigate('Screen1')}
+      >
+        <Text style={styles.buttonLabel}>
+          Navigate to home with navigate object
+        </Text>
       </TouchableOpacity>
     </View>
   );
