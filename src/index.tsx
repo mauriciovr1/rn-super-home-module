@@ -5,14 +5,10 @@ import ClipboardExample from './screens/clipboard-example';
 
 const Routes = createNativeStackNavigator();
 
-export function multiply(a: number, b: number): Promise<number> {
-  return Promise.resolve(a * b);
-}
-
 export default function ExampleModule() {
   return (
-    <Routes.Navigator>
-      <Routes.Screen name="clipboard" component={ClipboardExample} />
+    <Routes.Navigator initialRouteName="Clipboard">
+      <Routes.Screen name="Clipboard" component={ClipboardExample} />
     </Routes.Navigator>
   );
 }
